@@ -1,0 +1,49 @@
+{
+  "name": "protractor-course",
+  "version": "1.0.0",
+  "description": "Project for the Protractor course of the TAT school",
+  "scripts": {
+    "docker:pull": "docker pull selenium/hub && docker pull selenium/node-chrome && docker pull selenium/node-chrome-debug && docker pull selenium/node-firefox && docker pull selenium/node-firefox-debug",
+    "docker:ls": "docker container ls",
+    "docker:up": "docker-compose up -d",
+    "docker:restart": "docker-compose restart",
+    "docker:down": "docker-compose down",
+    "lint": "npx standard",
+    "lint:fix": "npx standard --fix",
+    "pretest": "webdriver-manager update",
+    "test": "npm run test:chrome && npm run test:firefox",
+    "test:chrome": "protractor configurations/chrome.js",
+    "test:firefox": "protractor configurations/firefox.js"
+  },
+  "standard": {
+    "globals": [
+      "beforeAll",
+      "beforeEach",
+      "browser",
+      "by",
+      "describe",
+      "element",
+      "expect",
+      "it"
+    ]
+  },
+  "keywords": [
+    "protractor",
+    "testing",
+    "e2e",
+    "docker",
+    "selenium-grid"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wlsf82/protractor-course"
+  },
+  "author": "Walmyr Filho <wlsf82@gmail.com> (https://walmyr.dev)",
+  "license": "MIT",
+  "devDependencies": {
+    "faker": "^4.1.0",
+    "protractor": "^7.0.0",
+    "protractor-helper": "^4.1.9",
+    "standardjs": "^1.0.0-alpha"
+  }
+}
